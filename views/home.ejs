@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script>
+<link rel="stylesheet" href="./style.css">
+
+<script >
+  var firebaseConfig = {
+    apiKey: "AIzaSyAuBLglCOVfvp75DA7ahu0fZ3qlPDE0Q6c",
+    authDomain: "admin-5db03.firebaseapp.com",
+    projectId: "admin-5db03",
+    storageBucket: "admin-5db03.appspot.com",
+    messagingSenderId: "145648879677",
+    appId: "1:145648879677:web:d066241746cea526e08254",
+    measurementId: "G-X9GESM85W8"
+  };
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics(); 
+  function currentuser(){
+      if(localStorage.getItem('firebase_idtoken')){
+          location.replace('./result')
+      }
+  }
+  currentuser();
+  function login(){
+    user=document.getElementById("username").value 
+    password=document.getElementById("password").value
+    console.log(user,password)
+ 
+    firebase.auth().signInWithEmailAndPassword(user,password)
+    .then((data)=>{
+       console.log(data)
+       alert("login successfully")
+       var idtoken = data.user.refreshToken
+       localStorage.setItem('firebase_idtoken',idtoken)
+        location.replace('./result')
+    }).catch((err)=>{
+        alert("invalid emailid & password")
+        console.log(err)
+        console.log(err.message)
+      
+    })
+  }        
+</script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h3>Admin login</h3>
+          </header>
+        <form id= "logo" >
+        <label for="name" >Email:</label>
+        <input type="email" name="username" id="username" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" required>
+        <br> 
+    </form>
+    <br>
+    <button  class="btn btn-add"  onclick="login()">SignIN</button>
+    </div>>
+</body>
+</html>

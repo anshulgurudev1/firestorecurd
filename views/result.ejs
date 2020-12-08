@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>firestore</title>
+    <link rel="stylesheet" href="./style.css">
+  
+</head>
+<body>
+      <div class="container">
+          <header>
+              <h3>user list</h3>
+            </header>
+          <div class="table-wrapper">
+              <table class="table-users">
+                  <tr>
+                     <th>First Name</th> 
+                     <th>Last Name</th> 
+                     <th>Phone</th> 
+                     <th>Email</th> 
+                     <th>Action</th> 
+                  </tr>
+                
+              </table>
+              <button class="btn btn-add">Add user</button>
+              <button class="btn btn-add" onclick="signout()">Logout</button>
+          </div>
+          <div class="add-model model-wrapper">
+              <div class="model">
+                  <div class="model-header">
+                      <div class="model-body"><h3>Add New user</h3></div>
+                          <form  class="form" autocomplete="off">
+                              <input type="text" name="firstname" placeholder="First Name">
+                              <input type=" text" name="lastname" placeholder="Last Name">
+                              <input type="number" name="phone" placeholder="Phone">
+                              <input type="text" name="email" placeholder="Email">
+                              <button class="btn btn-model" type="submit">submit</button>
+                          </form>
+                      </div>
+                  
+              </div>
+          </div>
+      </div>
+</body>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAtCkdJmaAFd6eMXdhofgyne6BM6APsueo",
+    authDomain: "admin2-3dfb7.firebaseapp.com",
+    projectId: "admin2-3dfb7",
+    storageBucket: "admin2-3dfb7.appspot.com",
+    messagingSenderId: "237244029805",
+    appId: "1:237244029805:web:a93ceb0f78df800c8bd864"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const db=firebase.firestore();
+  function signout(){
+      localStorage.removeItem('firebase_idtoken')
+      location.replace('./')
+  }
+</script>
+  
+
+<script src="./js/scrpit.js"></script>
+</html>

@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+:root{
+    --primary-color:#955df4;
+    --secondry-color:#ff816c;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Roboto', sans-serif; 
+}
+.container{
+    max-width: 50rem;
+    margin: auto;
+    -webkit-box-shadow: 8px 7px 15px 4px #000000; 
+box-shadow: 8px 7px 15px 4px #000000;
+padding-bottom: 2rem;
+}
+header{
+    width: 100%;
+    background: var(--primary-color);
+    padding: 1rem ;
+}
+header h3{
+    color:#fff;
+    margin-left: 1.5rem;
+}
+.table-users{
+    width: 90%;
+    margin: 2rem auto;
+    border-collapse: collapse;
+}
+.table-users th,.table-users td{
+    text-align: left;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: .5rem;
+}
+.table-users th{
+    background-color: #fafafa;
+    padding: 1rem auto;
+
+}
+.btn{
+    background: transparent;
+    width: 5rem;
+    height: 2rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    outline: none;
+    transition: all .5s ease;
+}
+.btn-delete{
+    color:var(--secondry-color) ;
+    border: 1px solid var(--secondry-color);
+}
+.btn-delete:hover{
+    background: var(--secondry-color);
+    color: #fff;
+}
+.table-wrapper{
+    text-align: center;
+}
+.btn-add{
+    width: 6rem;
+    height:2rem ;
+    background: var(--primary-color);
+    border: none;
+    color: #fff; 
+}
+.model-wrapper{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: #24232354;
+    display: none;
+}
+.model{
+    position: relative;
+    background: #fff;
+    text-align: center;
+    width: 25rem;
+    margin: 5rem auto;
+    -webkit-box-shadow: 8px 7px 15px 4px #000000; 
+box-shadow: 8px 7px 15px 4px #000000;
+  animation-name:animatetop ;
+  animation-duration:.4s ;
+}
+@keyframes animatetop{
+    from{
+        top:-300px; opacity: 0;
+    }
+    to{
+        top:0; opacity: 1;
+    }
+}
+.model-header{
+    margin-bottom: 1rem;
+    background: #f8fafb;
+    padding: 2rem;
+}
+.mode-body{
+    padding: 2rem;
+}
+.btn-model{
+    background: var(--primary-color);
+    border: none;
+    color: #fff;
+    width: 9rem;
+}
+input{
+    width: 100%;
+    height: 2.2rem;
+    margin-bottom:1rem;
+    text-indent:.5rem ;
+    outline: none;
+}
+.model-show{
+    display: block;
+}
